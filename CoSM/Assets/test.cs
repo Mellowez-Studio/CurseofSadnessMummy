@@ -17,7 +17,7 @@ public class test : MonoBehaviour
     
     void Update()
     {
-       
+       //dddd
         if (Input.GetMouseButtonDown(0))
         {
             
