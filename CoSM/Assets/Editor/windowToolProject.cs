@@ -8,7 +8,10 @@ public class windowToolProject : EditorWindow
     {
         GameObject selectObj = Selection.activeGameObject;
         if (selectObj != null)
+        {
             selectObj.AddComponent<PlayerEvent>();
+            selectObj.GetComponent<BoxCollider>().isTrigger = true;
+        }
     }
 
 }
