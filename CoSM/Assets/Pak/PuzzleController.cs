@@ -30,13 +30,17 @@ public class PuzzleController : MonoBehaviour {
 			{
 				Vector3 instantPos = new Vector3(transform.position.x + (i*dimentionX/2),transform.position.y +(j*dimentionY/2),transform.position.z);
 				Puzzles[i,j] = Instantiate (PuzzlePrefab,instantPos,transform.rotation) as GameObject;
-				Puzzles[i,j].AddComponent<PuzzleClass>();
 				Puzzles[i,j].transform.SetParent(this.transform);
 				Puzzles[i,j].name = "Puzzles"+i+"_"+j;
+                Puzzles[i, j].GetComponent<PuzzleClass>().myPuzzleController = this;              
 			}
 		}
-
 	}
+
+    public void CheckPuzzle()
+    {
+
+    }
 
 	void Start()
 	{

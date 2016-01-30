@@ -3,10 +3,14 @@ using System.Collections;
 
 public class PuzzleClass : MonoBehaviour
 {
-	PuzzleController.PuzzleColor slotUp;
-	PuzzleController.PuzzleColor slotLeft;
-	PuzzleController.PuzzleColor slotDown;
-	PuzzleController.PuzzleColor slotRight;
+    public PuzzleController myPuzzleController;
+
+    public PuzzleController.PuzzleColor slotUp;
+    public PuzzleController.PuzzleColor slotLeft;
+    public PuzzleController.PuzzleColor slotDown;
+    public PuzzleController.PuzzleColor slotRight;
+
+    bool isRotate = false;
 	
 	public void TurnRight()
 	{
@@ -15,8 +19,13 @@ public class PuzzleClass : MonoBehaviour
 		slotLeft = slotDown;
 		slotDown = slotRight;
 		slotRight = tempSlotUp;
-		CheckPuzzle ();
-	}
+
+        if (!isRotate)
+        {
+            isRotate = true;
+            SpinPuzzle(90);
+        }
+    }
 	
 	public void TurnLeft()
 	{
@@ -25,12 +34,18 @@ public class PuzzleClass : MonoBehaviour
 		slotRight = slotDown;
 		slotDown = slotLeft;
 		slotLeft = tempSlotUp;
-		CheckPuzzle ();
 	}
 	
-	void CheckPuzzle()
-	{
-		//
+	public void SpinPuzzle(int rotationZ)
+    {
+        thopframwork.ThopFW.TransformAll.RotateTo(this.gameObject, new Vector3(0, 0, this.transform.localEulerAngles.z + rotationZ), 1.5f, null, 
+            () => 
+            {
+                isRotate = false;
+                myPuzzleController.CheckPuzzle();
+            });
 	}
+
+   
 
 }
