@@ -29,6 +29,7 @@ public class PopUpBase : MonoBehaviour
     {
         popImg.GetComponent<Image>().sprite = img;
         popImg.SetActive(true);
+        GameManger.isPlayGame = false;
         popImg.GetComponent<Animator>().Play("Image");
         yield return new WaitForSeconds(1f);
         popImg.GetComponent<Animator>().Stop();
@@ -50,6 +51,7 @@ public class PopUpBase : MonoBehaviour
 
     public void ExitPopUpImg()
     {
+        GameManger.isPlayGame = true;
         popImg.SetActive(false);
     }
 }
