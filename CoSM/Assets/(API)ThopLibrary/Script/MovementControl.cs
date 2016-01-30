@@ -4,9 +4,9 @@ using System.Collections;
 public class MovementControl : MonoBehaviour {
 
     [SerializeField]
-    float moveSpeed = 0;
+    float moveSpeed = 4;
     [SerializeField]
-    float maxMoveSpeed = 8f;
+    float maxMoveSpeed = 4f;
 
     [SerializeField]
     float accelelation = 0f;
@@ -32,36 +32,15 @@ public class MovementControl : MonoBehaviour {
 
     IEnumerator TransformControl()
     {        
-        float xMoveSpeedTemp;
-        float zMoveSpeedTemp;
         while (true)
         {
-            if (Input.GetKey(KeyCode.W))
-            {
-                if (accelelation < maxAccelelation)
-                    accelelation += accelelationGainRate * Time.deltaTime;
-                else
-                    accelelation = maxAccelelation;
-
-                moveSpeed += accelelation * Time.deltaTime;
-            }
-            if (Input.GetKey(KeyCode.S))
-            {
-                if (accelelation > minAccelelation)
-                    accelelation += -accelelationGainRate * Time.deltaTime;
-                else
-                    accelelation = minAccelelation;
-
-                moveSpeed += accelelation * Time.deltaTime;
-
-            }
-                
-            //target.Translate(Vector3.forward * moveSpeed);
-            //target.Translate(Vector3.forward * moveSpeed);
+            if (Input.GetAxis("Vertical") > 0)
+                target.Translate(target.GetChild(0).forward * moveSpeed * Input.GetAxis("Vertical") * Time.deltaTime);
+            else
+                target.Translate(target.GetChild(0).forward * moveSpeed/2 * Input.GetAxis("Vertical") * Time.deltaTime);
+            target.Translate(target.GetChild(0).right * moveSpeed*2/3 * Input.GetAxis("Horizontal") * Time.deltaTime);
             yield return null;
-        }
-        
-        yield return null;
+        }        
     }
 
 }

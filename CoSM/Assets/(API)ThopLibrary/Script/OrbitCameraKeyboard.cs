@@ -4,7 +4,7 @@ using System.Collections;
 public class OrbitCameraKeyboard : MonoBehaviour {
     
     [SerializeField]
-    float rotationSensitivity = 5;
+    float rotationSensitivity = 3;
 
     public Transform target;
        

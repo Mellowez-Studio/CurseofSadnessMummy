@@ -14,7 +14,7 @@ public class OrbitCameraControl : MonoBehaviour {
     public Transform target;
 
     [SerializeField]
-    float rotationSensitivity = 5;
+    float rotationSensitivity = 3;
     [SerializeField]
     float scrollSensitivity = 2;
 
@@ -65,7 +65,8 @@ public class OrbitCameraControl : MonoBehaviour {
             orbitObjVerticalTransform = orbitObjVertical.transform;
 
             cameraTransform.localPosition = new Vector3(0, 0, distanceFromTarget);
-            orbitObjVerticalTransform.localEulerAngles = new Vector3(-20, 0, 0);
+            orbitObjHorizontalTransform.localEulerAngles = new Vector3(0, 180, 0);
+            orbitObjVerticalTransform.localEulerAngles = new Vector3(30, 0, 0);
 
             cameraTransform.SetParent(orbitObjVerticalTransform);
             orbitObjVerticalTransform.SetParent(orbitObjHorizontalTransform);
@@ -95,8 +96,7 @@ public class OrbitCameraControl : MonoBehaviour {
                 rotationY = Input.GetAxis("Mouse Y") * rotationSensitivity * Time.deltaTime * 100;
 
                 //set rotationX
-                //orbitObjHorizontalTransform.Rotate(Vector3.up, rotationX);
-                RotateHorizontal(rotationX);
+                orbitObjHorizontalTransform.Rotate(Vector3.up, rotationX);
 
                 //set rotationY
 
@@ -169,5 +169,6 @@ public class OrbitCameraControl : MonoBehaviour {
     public void RotateHorizontal(float amount)
     {
         orbitObjHorizontalTransform.Rotate(Vector3.up, amount);
+        target.GetChild(0).Rotate(Vector3.up, amount);
     }
 }
