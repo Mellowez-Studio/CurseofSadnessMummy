@@ -5,35 +5,37 @@ using System.Collections;
 public class UIControl : MonoBehaviour {
 	
 	public static bool isPause = false;
+	public static bool[] gain = new bool[7];
 
 	public static float hour;
 	public static float minute;
 
 	private GameObject mapPanel;
+	private GameObject itemPanel;
 
 	private Image timeUI;
 
-	private Button[] slot = new Button[4];
+	private Button[] slot = new Button[7];
 
 	private Text timeTxt;
 
 	private float time = 1800f;
 	private float timeLeft;
-
-	private bool[] gain = new bool[4];
 	// Use this for initialization
 	void Start () {
 		mapPanel = GameObject.Find ("Map_panel");
+		itemPanel = GameObject.Find ("Item_panel");
 
 		timeUI = GameObject.Find ("CurseTime").GetComponent<Image> ();
 
 		timeTxt = GameObject.Find ("Time_txt").GetComponent<Text> ();
 
-		for (int i = 1; i <= 4; i++) {
+		for (int i = 1; i <= 7; i++) {
 			slot[i - 1] = GameObject.Find ("Slot_" + i).GetComponent<Button> ();
 		}
 
 		mapPanel.SetActive (false);
+		itemPanel.SetActive (false);
 
 		isPause = false;
 
@@ -50,12 +52,15 @@ public class UIControl : MonoBehaviour {
 			PlayerPrefs.SetInt ("Slot2", 0);
 			PlayerPrefs.SetInt ("Slot3", 0);
 			PlayerPrefs.SetInt ("Slot4", 0);
+			PlayerPrefs.SetInt ("Slot5", 0);
+			PlayerPrefs.SetInt ("Slot6", 0);
+			PlayerPrefs.SetInt ("Slot7", 0);
 
-			for (int i = 0; i < 4; i++) {
+			for (int i = 0; i < 7; i++) {
 				gain[i] = false;
 			}
 		} else {
-			for (int i = 0; i < 4; i++) {
+			for (int i = 0; i < 7; i++) {
 				if (PlayerPrefs.GetInt ("Slot" + (i + 1)) == 0) {
 					gain [i] = false;
 				} else {
@@ -72,7 +77,19 @@ public class UIControl : MonoBehaviour {
 	}
 
 	public void itemSlot (int i) {
-		print (gain [i]);
+		if (!itemPanel.activeSelf) {
+			if (gain [i]) {
+				itemPanel.SetActive (true);
+			}
+		} else {
+			itemPanel.SetActive (false);
+		}
+	}
+
+	public void GetItem (int i) {
+		PlayerPrefs.SetInt ("Slot" + i, 0);
+
+		gain [i] = true;
 	}
 
 	public void Map () {
