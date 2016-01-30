@@ -94,13 +94,13 @@ public class OrbitCameraControl : MonoBehaviour {
                 rotationX = Input.GetAxis("Mouse X") * rotationSensitivity * Time.deltaTime * 100;
                 rotationY = Input.GetAxis("Mouse Y") * rotationSensitivity * Time.deltaTime * 100;
 
-				//set rotationX
-                orbitObjHorizontalTransform.Rotate(Vector3.up, rotationX);
+                //set rotationX
+                //orbitObjHorizontalTransform.Rotate(Vector3.up, rotationX);
+                RotateHorizontal(rotationX);
 
+                //set rotationY
 
-				//set rotationY
-
-				if (tempRotationY >= maxRotationY && rotationY > 0)
+                if (tempRotationY >= maxRotationY && rotationY > 0)
 					tempRotationY = maxRotationY;
 				else if (tempRotationY <= minRotationY && rotationY < 0)
 					tempRotationY = minRotationY;
@@ -165,4 +165,9 @@ public class OrbitCameraControl : MonoBehaviour {
 			yield return null;
 		}
 	}
+
+    public void RotateHorizontal(float amount)
+    {
+        orbitObjHorizontalTransform.Rotate(Vector3.up, amount);
+    }
 }
