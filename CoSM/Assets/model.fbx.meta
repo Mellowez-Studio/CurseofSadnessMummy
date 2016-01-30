@@ -1,0 +1,305 @@
+fileFormatVersion: 2
+guid: 02b18681d62eb594a84f36ca2604902f
+timeCreated: 1454125683
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: man:joint10
+    100004: man:joint11
+    100006: man:joint12
+    100008: man:joint13
+    100010: man:joint14
+    100012: man:joint15
+    100014: man:joint16
+    100016: man:joint17
+    100018: man:joint18
+    100020: man:joint19
+    100022: man:joint20
+    100024: man:joint21
+    100026: man:joint22
+    100028: man:joint23
+    100030: man:joint4
+    100032: man:joint5
+    100034: man:joint6
+    100036: man:joint7
+    100038: man:joint8
+    100040: man:joint9
+    100042: man:man:polySurface297
+    100044: man:polySurface297
+    100046: polySurface289
+    100048: sass:pCube1
+    100050: sass:pCube2
+    100052: sass:pCube3
+    100054: sass:pCube4
+    100056: sass:polySurface196
+    100058: sass:polySurface285
+    100060: sass:polySurface285 1
+    100062: sass:polySurface286
+    100064: sass:polySurface286 1
+    100066: sass:polySurface287
+    100068: sass:polySurface289
+    100070: sass:polySurface289 1
+    100072: sass:polySurface295
+    100074: sass:sass:transform1
+    100076: sass:sass:transform2
+    100078: sass:transform250
+    100080: sass:transform252
+    100082: sass:transform253
+    100084: sass:transform254
+    100086: sass:transform255
+    100088: sass:transform256
+    100090: sass:transform257
+    100092: sass:transform258
+    100094: sass:transform259
+    100096: sass:transform260
+    100098: sass:transform261
+    400000: //RootNode
+    400002: man:joint10
+    400004: man:joint11
+    400006: man:joint12
+    400008: man:joint13
+    400010: man:joint14
+    400012: man:joint15
+    400014: man:joint16
+    400016: man:joint17
+    400018: man:joint18
+    400020: man:joint19
+    400022: man:joint20
+    400024: man:joint21
+    400026: man:joint22
+    400028: man:joint23
+    400030: man:joint4
+    400032: man:joint5
+    400034: man:joint6
+    400036: man:joint7
+    400038: man:joint8
+    400040: man:joint9
+    400042: man:man:polySurface297
+    400044: man:polySurface297
+    400046: polySurface289
+    400048: sass:pCube1
+    400050: sass:pCube2
+    400052: sass:pCube3
+    400054: sass:pCube4
+    400056: sass:polySurface196
+    400058: sass:polySurface285
+    400060: sass:polySurface285 1
+    400062: sass:polySurface286
+    400064: sass:polySurface286 1
+    400066: sass:polySurface287
+    400068: sass:polySurface289
+    400070: sass:polySurface289 1
+    400072: sass:polySurface295
+    400074: sass:sass:transform1
+    400076: sass:sass:transform2
+    400078: sass:transform250
+    400080: sass:transform252
+    400082: sass:transform253
+    400084: sass:transform254
+    400086: sass:transform255
+    400088: sass:transform256
+    400090: sass:transform257
+    400092: sass:transform258
+    400094: sass:transform259
+    400096: sass:transform260
+    400098: sass:transform261
+    4300000: man:man:polySurface297
+    4300002: man:polySurface297
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: man:man:polySurface297
+    13700002: man:polySurface297
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 80
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: man:joint12
+        weight: 1
+      - path: man:joint12/man:joint4
+        weight: 1
+      - path: man:joint12/man:joint4/man:joint5
+        weight: 1
+      - path: man:joint12/man:joint4/man:joint5/man:joint6
+        weight: 1
+      - path: man:joint12/man:joint13
+        weight: 1
+      - path: man:joint12/man:joint13/man:joint7
+        weight: 1
+      - path: man:joint12/man:joint13/man:joint7/man:joint8
+        weight: 1
+      - path: man:joint12/man:joint13/man:joint7/man:joint8/man:joint9
+        weight: 1
+      - path: man:joint12/man:joint13/man:joint7/man:joint8/man:joint9/man:joint10
+        weight: 1
+      - path: man:joint12/man:joint13/man:joint7/man:joint8/man:joint9/man:joint10/man:joint11
+        weight: 1
+      - path: man:joint12/man:joint13/man:joint14
+        weight: 1
+      - path: man:joint12/man:joint13/man:joint14/man:joint15
+        weight: 1
+      - path: man:joint12/man:joint13/man:joint16
+        weight: 1
+      - path: man:joint12/man:joint13/man:joint16/man:joint17
+        weight: 1
+      - path: man:joint12/man:joint13/man:joint16/man:joint17/man:joint18
+        weight: 1
+      - path: man:joint12/man:joint13/man:joint16/man:joint17/man:joint18/man:joint19
+        weight: 1
+      - path: man:joint12/man:joint13/man:joint16/man:joint17/man:joint18/man:joint19/man:joint20
+        weight: 1
+      - path: man:joint12/man:joint21
+        weight: 1
+      - path: man:joint12/man:joint21/man:joint22
+        weight: 1
+      - path: man:joint12/man:joint21/man:joint22/man:joint23
+        weight: 1
+      - path: man:man:polySurface297
+        weight: 1
+      - path: man:polySurface297
+        weight: 1
+      - path: sass:pCube1
+        weight: 1
+      - path: sass:pCube1/sass:transform257
+        weight: 1
+      - path: sass:pCube2
+        weight: 1
+      - path: sass:pCube2/sass:transform256
+        weight: 1
+      - path: sass:pCube3
+        weight: 1
+      - path: sass:pCube3/sass:transform255
+        weight: 1
+      - path: sass:pCube4
+        weight: 1
+      - path: sass:pCube4/sass:transform254
+        weight: 1
+      - path: sass:polySurface196
+        weight: 1
+      - path: sass:polySurface196/sass:polySurface285 1
+        weight: 1
+      - path: sass:polySurface196/sass:polySurface285 1/sass:transform258
+        weight: 1
+      - path: sass:polySurface196/sass:polySurface286 1
+        weight: 1
+      - path: sass:polySurface196/sass:polySurface286 1/sass:transform252
+        weight: 1
+      - path: sass:polySurface196/sass:polySurface287
+        weight: 1
+      - path: sass:polySurface196/sass:transform250
+        weight: 1
+      - path: sass:polySurface285
+        weight: 1
+      - path: sass:polySurface285/polySurface289
+        weight: 1
+      - path: sass:polySurface285/polySurface289/sass:transform260
+        weight: 1
+      - path: sass:polySurface285/sass:polySurface289 1
+        weight: 1
+      - path: sass:polySurface285/sass:polySurface289 1/sass:transform261
+        weight: 1
+      - path: sass:polySurface285/sass:transform259
+        weight: 1
+      - path: sass:polySurface286
+        weight: 1
+      - path: sass:polySurface286/sass:transform253
+        weight: 1
+      - path: sass:polySurface289
+        weight: 1
+      - path: sass:polySurface289/sass:sass:transform1
+        weight: 1
+      - path: sass:polySurface295
+        weight: 1
+      - path: sass:polySurface295/sass:sass:transform2
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 3
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 1
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

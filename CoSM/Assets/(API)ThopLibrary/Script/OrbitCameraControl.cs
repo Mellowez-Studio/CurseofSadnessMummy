@@ -75,7 +75,7 @@ public class OrbitCameraControl : MonoBehaviour {
             orbitObjVerticalTransform.SetParent(orbitObjHorizontalTransform);
             orbitObjHorizontalTransform.SetParent(target);
 
-            orbitObjHorizontalTransform.localPosition += offsetPos;
+            orbitObjHorizontalTransform.localPosition += offsetPos + target.position;
 
 			cameraTransform.LookAt(orbitObjHorizontalTransform);
 			tempRotationY = orbitObjVerticalTransform.localEulerAngles.y;
