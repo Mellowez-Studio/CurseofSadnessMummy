@@ -7,12 +7,14 @@ public class PlayerEvent : MonoBehaviour {
     public UnityEvent eventA;
     GameObject sprite;
     Vector3 ScaleOp = new Vector3(0.25f,0.25f,0.25f);
+    viewborad myViewBorad;
     // Use this for initialization
     void Start()
     {
         sprite = Instantiate(Resources.Load("ProjectAssets/image/E_btn") as GameObject);
         sprite.transform.SetParent(gameObject.transform);
-        sprite.transform.localPosition = new Vector3(-1.5f,2f,-1f);
+        myViewBorad = sprite.GetComponent<viewborad>();
+        sprite.transform.localPosition = new Vector3(-1.1f,1.6f,-0.5f);
     }
 	   
     private Coroutine startEvent;
@@ -21,6 +23,7 @@ public class PlayerEvent : MonoBehaviour {
         if (other.tag == "Player")
         {
             iswork = true;
+            myViewBorad.startViewBorad();
             ThopFW.TransformAll.ScaleTo(sprite,ScaleOp,0.25f,null,()=>{ startEvent = StartCoroutine(isWork()); });
         }
     }
@@ -30,7 +33,7 @@ public class PlayerEvent : MonoBehaviour {
         {
             iswork = false;
             StopCoroutine(isWork());
-            ThopFW.TransformAll.ScaleTo(sprite, Vector3.zero, 0.25f,null,()=> {  });
+            ThopFW.TransformAll.ScaleTo(sprite, Vector3.zero, 0.25f,null,()=> { myViewBorad.endViewBorad(); });
         }
     }
     bool iswork = true;
