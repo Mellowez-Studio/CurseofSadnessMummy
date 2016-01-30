@@ -31,6 +31,9 @@ public class MainMenuControl : MonoBehaviour {
 
 		optPanel.SetActive (false);
 		crePanel.SetActive (false);
+
+		PlayerPrefs.DeleteKey ("Hour");
+		PlayerPrefs.DeleteKey ("Minute");
 	}
 
 	public void StartGame () {

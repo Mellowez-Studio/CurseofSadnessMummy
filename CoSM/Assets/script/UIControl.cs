@@ -36,8 +36,14 @@ public class UIControl : MonoBehaviour {
 		mapPanel.SetActive (false);
 
 		isPause = false;
-		hour = 0;
-		minute = 0;
+
+		if (PlayerPrefs.HasKey ("Minute")) {
+			hour = PlayerPrefs.GetFloat ("Hour");
+			minute = PlayerPrefs.GetFloat ("Minute");
+		} else {
+			hour = 0;
+			minute = 0;
+		}
 
 		if (!PlayerPrefs.HasKey ("Slot1")) {
 			PlayerPrefs.SetInt ("Slot1", 0);
@@ -114,10 +120,14 @@ public class UIControl : MonoBehaviour {
 				PlayerPrefs.SetFloat ("CurseTime", t);
 
 				minute++;
+
+				PlayerPrefs.SetFloat ("Minute", minute);
 				
 				if (minute >= 60) {
 					minute = 0;
 					hour++;
+
+					PlayerPrefs.SetFloat ("Hour", hour);
 
 					if (hour >= 24 && minute > 0) {
 						hour = 0;
