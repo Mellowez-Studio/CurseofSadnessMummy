@@ -22,7 +22,7 @@ public class OrbitCameraKeyboard : MonoBehaviour {
     IEnumerator CameraRotateController()
     {
         float rotationAmount;
-        rotationAmount = rotationSensitivity * Time.deltaTime * 50;
+        rotationAmount = rotationSensitivity * Time.deltaTime * 30;
         while (true)
         {            
             if (Input.GetKey(KeyCode.Q))
