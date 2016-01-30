@@ -6,20 +6,21 @@ public class welcomeToMySadStory : MonoBehaviour
     public string toSence;
     GameObject backgoundLoad;
     GameObject canvas;
+
     public void loadAys()
     {
-        print("toSence");
-        canvas = GameObject.Find("canvas");
+        canvas = GameObject.Find("popUpCavas");
         backgoundLoad = canvas.transform.Find("FateLoad_2").gameObject;
         StartCoroutine(startLoadS());
     }
 
     IEnumerator startLoadS()
     {
-        
+        backgoundLoad.SetActive(true);
         backgoundLoad.GetComponent<Animator>().Play("FateLoad_2");
         yield return new WaitForSeconds(1f);
         backgoundLoad.GetComponent<Animator>().Stop();
-        Application.LoadLevel(toSence);
+        ThopFW.LoadLevelAsync.ToLevel(this.gameObject,toSence,true);
+        ThopFW.LoadLevelAsync.StartLoadLevelAsync(()=> { backgoundLoad.SetActive(false);  });
     } 
 }

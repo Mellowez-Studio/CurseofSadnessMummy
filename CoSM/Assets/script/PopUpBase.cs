@@ -38,7 +38,7 @@ public class PopUpBase : MonoBehaviour
     }
     static IEnumerator startPopText(string textShow,Action OnFinish=null)
     {
-
+        
         poptext.GetComponent<Text>().text = textShow;
         poptext.SetActive(true);
         poptext.GetComponent<Animator>().Play("PopUpText");      

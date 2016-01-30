@@ -448,21 +448,22 @@ namespace thopframwork
         {
             private static LoadLevelAsyncS obj;
 
-            public static LoadLevelAsyncS ToLevel(GameObject form, string namestring)
+            public static LoadLevelAsyncS ToLevel(GameObject form, string namestring,bool loadAuto = false)
             {
                 if (form.GetComponent<LoadLevelAsyncS>() != null)
                     obj = form.GetComponent<LoadLevelAsyncS>();
                 else
                     obj = form.AddComponent<LoadLevelAsyncS>();
 
+                obj.loadAuto = loadAuto;
                 obj.level = namestring;
                 return obj;
             }
             public static void StartLoadLevelAsync(Action actions = null)
             {
-                obj.startLoad();
-                if (actions != null)
-                    actions();
+                
+                obj.startLoad(actions);
+                
             }
             public static float isProgress()
             {

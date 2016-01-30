@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using System;
 public class LoadLevelAsyncS : MonoBehaviour
 {
     public string level;
@@ -10,9 +10,11 @@ public class LoadLevelAsyncS : MonoBehaviour
     private bool allowLoading = false;
     private float isProgresss = 0f;
     public bool loadAuto = false;
-   
-    public void startLoad()
+    public Action onFinish;
+    
+    public void startLoad(Action onFinish = null)
     {
+        this.onFinish = onFinish;
         if (!isLoading)
         {
             isLoading = true;
@@ -63,5 +65,7 @@ public class LoadLevelAsyncS : MonoBehaviour
             yield return null;
         }
         op.allowSceneActivation = true;
+        if (onFinish != null)
+            onFinish();
     }
 }
