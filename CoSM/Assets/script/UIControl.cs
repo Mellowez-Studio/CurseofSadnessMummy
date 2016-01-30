@@ -6,7 +6,8 @@ public class UIControl : MonoBehaviour {
 	
 	public static bool isPause = false;
 
-	public static float timeLeft;
+	public static float hour;
+	public static float minute;
 
 	private GameObject mapPanel;
 
@@ -17,9 +18,7 @@ public class UIControl : MonoBehaviour {
 	private Text timeTxt;
 
 	private float time = 1800f;
-
-	private int hour;
-	private int minute;
+	private float timeLeft;
 
 	private bool[] gain = new bool[4];
 	// Use this for initialization
@@ -91,7 +90,6 @@ public class UIControl : MonoBehaviour {
 
 	IEnumerator CountTime (int t) {
 		timeUI.fillAmount = t / time;
-		timeLeft = t;
 
 		while (t > 0) {
 			if (!isPause) {
@@ -112,7 +110,6 @@ public class UIControl : MonoBehaviour {
 				yield return new WaitForSeconds (1f);
 
 				timeUI.fillAmount = t / time;
-				timeLeft = t;
 
 				PlayerPrefs.SetFloat ("CurseTime", t);
 
