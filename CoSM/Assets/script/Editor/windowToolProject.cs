@@ -48,4 +48,12 @@ public class windowToolProject : EditorWindow
         if (selectObj != null)
             selectObj.AddComponent<ankh_E2>();
     }
+    [MenuItem("ThisProject/AddCompoment/EventObject/Event3/Door")]
+    static void adddoor1()
+    {
+        GameObject selectObj = Selection.activeGameObject;
+        if (selectObj != null)
+            selectObj.AddComponent<Door1>();
+    }
+   
 }
