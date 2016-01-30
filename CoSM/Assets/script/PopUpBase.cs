@@ -4,8 +4,8 @@ using System.Collections;
 using System;
 public class PopUpBase : MonoBehaviour
 {
-    public static GameObject popImg;
-    public static GameObject poptext;
+     static GameObject popImg;
+     static GameObject poptext;
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);

@@ -67,5 +67,6 @@ public class LoadLevelAsyncS : MonoBehaviour
         op.allowSceneActivation = true;
         if (onFinish != null)
             onFinish();
+        Destroy(this);
     }
 }
