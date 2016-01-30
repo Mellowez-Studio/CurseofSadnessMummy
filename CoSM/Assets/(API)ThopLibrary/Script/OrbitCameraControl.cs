@@ -24,6 +24,9 @@ public class OrbitCameraControl : MonoBehaviour {
     float minDistanceFromTarget = 2f;
     [SerializeField]
     float maxDistanceFromTarget = 8f;
+	[SerializeField]
+	float cameraDistanceSnapSpeed = 1.5f;
+
 
     [SerializeField]
     float minRotationY = -90f;
@@ -124,6 +127,7 @@ public class OrbitCameraControl : MonoBehaviour {
     IEnumerator ScrollCamera()
     {
         float z;
+		Vector3 targetCameraLocalPos = cameraTransform.localPosition;
         while (true)
         {
             if (Input.GetAxis("Mouse ScrollWheel")!=0)
@@ -143,10 +147,9 @@ public class OrbitCameraControl : MonoBehaviour {
 						distanceFromTarget = minDistanceFromTarget;
 				}
 					
-
-				cameraTransform.localPosition = new Vector3(cameraTransform.localPosition.x, cameraTransform.localPosition.y, distanceFromTarget);
-                    
+				targetCameraLocalPos = new Vector3(cameraTransform.localPosition.x, cameraTransform.localPosition.y, distanceFromTarget);
             }
+			cameraTransform.localPosition = Vector3.Slerp(cameraTransform.localPosition, targetCameraLocalPos,cameraDistanceSnapSpeed * Time.deltaTime);
             yield return null;
         }
     }
