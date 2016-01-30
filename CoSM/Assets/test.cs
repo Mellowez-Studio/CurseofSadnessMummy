@@ -29,7 +29,7 @@ public class test : MonoBehaviour
                         isDraw = true;
                         if (isDraws != null)
                             StopCoroutine(isDraws);
-                        isDraws = StartCoroutine(drawLineE());
+                        //isDraws = StartCoroutine(drawLineE());
                         Vector3 relativePos = hit.point - transform.position;
                         Quaternion rotation = Quaternion.LookRotation(relativePos);
                         gameObject.transform.GetChild(0).transform.rotation = new Quaternion(rotation.x, rotation.y, 0f, rotation.w);

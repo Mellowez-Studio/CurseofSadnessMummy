@@ -13,12 +13,17 @@ public class GameManger : MonoBehaviour {
     {      
         DontDestroyOnLoad(canvasPopup);
         DontDestroyOnLoad(inGameCanvas);        
-        Instantiate(canvasPopup);
-        Instantiate(inGameCanvas);
+       // if(GameObject.find)
+        GameObject a = Instantiate(canvasPopup);
+        a.name = "popUpCavas";
+        GameObject b = Instantiate(inGameCanvas);
+        b.name = "InGameCanvas";
+
     }
-	void Start () {
-	
-	}
+    void Start()
+    {
+        Instantiate(Player);
+    }
 	
 	// Update is called once per frame
 	void Update () {
