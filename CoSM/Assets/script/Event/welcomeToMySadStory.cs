@@ -16,6 +16,7 @@ public class welcomeToMySadStory : MonoBehaviour
 
     IEnumerator startLoadS()
     {
+        
         backgoundLoad.GetComponent<Animator>().Play("FateLoad_2");
         yield return new WaitForSeconds(1f);
         backgoundLoad.GetComponent<Animator>().Stop();
