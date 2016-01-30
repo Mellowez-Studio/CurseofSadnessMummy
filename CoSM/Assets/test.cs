@@ -52,15 +52,7 @@ public class test : MonoBehaviour
         }
     }
 
-    IEnumerator rotateTo (System.Action onFinish)
-    {
-        Vector3 relativePos = hit.point - transform.position;
-        while (true)
-        {
-            yield return null;
-        }
-        onFinish();
-    }
+   
 
     float cuSpeed(Vector3 dis)
     {
