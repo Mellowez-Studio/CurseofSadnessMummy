@@ -5,6 +5,7 @@ public class ankh_E2 : MonoBehaviour {
 
     public string nameChack ="";
     public float time = 0.25f;
+ 
     // Use this for initialization
     public void Events()
     {

@@ -1,30 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
+using thopframwork;
 public class welcomeToMySadStory : MonoBehaviour
 {
     public string toSence;
-    GameObject canvas;
     GameObject backgoundLoad;
-
+    GameObject canvas;
     public void loadAys()
     {
         print("toSence");
-        canvas = GameObject.FindObjectOfType<Canvas>().gameObject;
-        backgoundLoad = canvas.transform.GetChild(0).gameObject;
-    /*    backgoundLoad = Instantiate(Resources.Load("ProjectAssets/Prefab/FateLoad") as GameObject);
-        backgoundLoad.transform.SetParent(canvas.transform);*/
+        canvas = GameObject.Find("canvas");
+        backgoundLoad = canvas.transform.Find("FateLoad_2").gameObject;
         StartCoroutine(startLoadS());
     }
 
     IEnumerator startLoadS()
     {
-        Color newTrp = backgoundLoad.GetComponent<UnityEngine.UI.Image>().color;
-        while (newTrp.a < 255)
-        {
-            Debug.Log(backgoundLoad.GetComponent<UnityEngine.UI.Image>().color);
-            newTrp.a++;
-            backgoundLoad.GetComponent<UnityEngine.UI.Image>().color = newTrp;
-            yield return new WaitForSeconds(0.2f);
-        }
+        backgoundLoad.GetComponent<Animator>().Play("FateLoad_2");
+        yield return new WaitForSeconds(1f);
+        backgoundLoad.GetComponent<Animator>().Stop();
+        Application.LoadLevel(toSence);
     } 
 }
