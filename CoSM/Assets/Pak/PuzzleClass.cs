@@ -10,7 +10,7 @@ public class PuzzleClass : MonoBehaviour
     public PuzzleController.PuzzleColor slotDown;
     public PuzzleController.PuzzleColor slotRight;
 
-    bool isRotate = false;
+    public bool isRotate = false;
 	
 	public void TurnRight()
 	{
@@ -42,7 +42,7 @@ public class PuzzleClass : MonoBehaviour
 	
 	public void SpinPuzzle(int rotationZ)
     {
-        thopframwork.ThopFW.TransformAll.RotateTo(this.gameObject, new Vector3(0, 0, this.transform.localEulerAngles.z + rotationZ), 0.5f, null, 
+        thopframwork.ThopFW.TransformAll.RotateTo(this.gameObject, new Vector3(0, 0, this.transform.localEulerAngles.z + rotationZ), 0.8f, null, 
             () => 
             {
                 isRotate = false;

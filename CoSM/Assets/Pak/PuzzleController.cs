@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Events;
 
 public class PuzzleController : MonoBehaviour {
 
@@ -10,7 +11,10 @@ public class PuzzleController : MonoBehaviour {
 	[SerializeField]
 	public GameObject[,] Puzzles;
 
-	[SerializeField]
+    List<PuzzleClass> PuzzlesClass = new List<PuzzleClass>();
+    PuzzleClass targetPuzzleClass;
+
+    [SerializeField]
 	Vector2 dimention;
 
 	[SerializeField]
@@ -21,7 +25,11 @@ public class PuzzleController : MonoBehaviour {
 	[SerializeField]
 	int correctCount;
 
-	public enum PuzzleColor
+    public UnityEvent OnFinish;
+    [SerializeField]
+    string OnFinish2;
+
+    public enum PuzzleColor
 	{
 		Red,
 		Blue,
@@ -29,22 +37,29 @@ public class PuzzleController : MonoBehaviour {
 		Yellow
 	}
 
-	public void GeneratePuzzle(int dimentionX, int dimentionY)
+	public void GeneratePuzzle()
 	{
-		for(int i = 0; i < dimentionX;i++)
+        Puzzles = new GameObject[(int)dimention.x, (int)dimention.y];
+        countToCorrect = ((int)dimention.x * ((int)dimention.y - 1)) + (((int)dimention.x - 1) * (int)dimention.y);
+        int dimentionX = (int)dimention.x;
+        int dimentionY = (int)dimention.y;
+
+        for (int i = 0; i < dimentionX; i++)
 		{
 			for(int j = 0; j < dimentionY; j++)
 			{
 				Vector3 instantPos = new Vector3(
-					transform.position.x - ((dimentionX-1)/2f) + (i*instantOffset),
-					transform.position.y + ((dimentionY-1)/2f) - (j*instantOffset),
+					transform.position.x - ((dimentionX - 1)/2f) + (i*instantOffset),
+					transform.position.y + ((dimentionY - 1)/2f) - (j*instantOffset),
 					transform.position.z);
 				Puzzles[i,j] = Instantiate (PuzzlePrefab,instantPos,transform.rotation) as GameObject;
 				Puzzles[i,j].transform.SetParent(this.transform);
 				Puzzles[i,j].name = "Puzzles"+i+"_"+j;
-                Puzzles[i, j].GetComponent<PuzzleClass>().myPuzzleController = this;              
-			}
-		}
+                targetPuzzleClass = Puzzles[i, j].GetComponent<PuzzleClass>();
+                targetPuzzleClass.myPuzzleController = this;
+                PuzzlesClass.Add(targetPuzzleClass);
+            }
+        }
 	}
 
     public void CheckPuzzle()
@@ -74,41 +89,24 @@ public class PuzzleController : MonoBehaviour {
 				}
 			}
 		}
-
-		/*
-		if (Puzzles [0, 0].GetComponent<PuzzleClass> ().slotDown == Puzzles [0, 1].GetComponent<PuzzleClass> ().slotUp) 
-		{
-			print (" 0,0 == 0,1 ");
-			correctCount++;
-		} 
-		if (Puzzles [0, 0].GetComponent<PuzzleClass> ().slotRight == Puzzles [1, 0].GetComponent<PuzzleClass> ().slotLeft) 
-		{
-			print (" 0,0 == 1,0 ");
-			correctCount++;
-		} 
-		if (Puzzles [0, 1].GetComponent<PuzzleClass> ().slotRight == Puzzles [1, 1].GetComponent<PuzzleClass> ().slotLeft)
-		{
-			print (" 0,1 == 1,1 ");
-			correctCount++;
-		} 
-		if (Puzzles [1, 0].GetComponent<PuzzleClass> ().slotDown == Puzzles [1, 1].GetComponent<PuzzleClass> ().slotUp)
-		{
-			print (" 1,0 == 1,1 ");
-			correctCount++;
-		} 		
-*/
-		if (correctCount == countToCorrect)
-			print (" FINISH !!");
-		else
-			print (" NOT YET !!");
+        if (correctCount == countToCorrect)
+        {
+            print(" FINISH !!");
+            data_Key_tresure.addNameKey(OnFinish2);
+            PopUpBase.PopUpText("Puzzle Clear!!", () => OnFinish.Invoke());
+            Invoke("ClosePuzzle", 1f);
+        }
+        else
+            print(" NOT YET !!");
     }
 
-	void Start()
-	{
-		Puzzles = new GameObject[(int)dimention.x,(int)dimention.y];
-		GeneratePuzzle ((int)dimention.x, (int)dimention.y);
-		countToCorrect = ((int)dimention.x * ((int)dimention.y - 1)) + (((int)dimention.x - 1) * (int)dimention.y);
-		//print("(int)dimention.x * (int)dimention.y - 1) = " + ((int)dimention.x * ((int)dimention.y - 1)));
-		//print("(int)dimention.x - 1 * (int)dimention.y) = " + (((int)dimention.x - 1) * (int)dimention.y));
-	}
+    void ClosePuzzle()
+    {
+        foreach (PuzzleClass puzzle in PuzzlesClass)
+        {
+            thopframwork.ThopFW.TransformAll.RotateTo(puzzle.gameObject, new Vector3(0, 0, puzzle.transform.localEulerAngles.z + 90), 1.5f, null,null);
+            thopframwork.ThopFW.TransformAll.ScaleTo(puzzle.gameObject, Vector3.zero, 1.5f, null, null);
+        }
+    }
+    
 }
