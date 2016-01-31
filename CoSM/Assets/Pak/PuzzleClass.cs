@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class PuzzleClass : MonoBehaviour
 {
@@ -10,22 +11,22 @@ public class PuzzleClass : MonoBehaviour
     public PuzzleController.PuzzleColor slotDown;
     public PuzzleController.PuzzleColor slotRight;
 
-    public bool isRotate = false;
+    public bool isWorking = false;
 	
 	public void TurnRight()
 	{
-        if (!isRotate)
+        if (!isWorking)
         {
-			PuzzleController.PuzzleColor tempSlotUp = slotUp;			
+            isWorking = true;
+            PuzzleController.PuzzleColor tempSlotUp = slotUp;			
 			slotUp = slotLeft;
 			slotLeft = slotDown;
 			slotDown = slotRight;
-			slotRight = tempSlotUp;
-            isRotate = true;
+			slotRight = tempSlotUp;            
             SpinPuzzle(-90);
         }
     }
-	/*
+    /*
 	public void TurnLeft()
 	{
 	 	if (!isRotate)
@@ -35,21 +36,49 @@ public class PuzzleClass : MonoBehaviour
 			slotRight = slotDown;
 			slotDown = slotLeft;
 			slotLeft = tempSlotUp;
-			isRotate = true;
+			isWorking = true;
         	SpinPuzzle(90);
 		}
 	}*/
-	
-	public void SpinPuzzle(int rotationZ)
+
+    void SpinPuzzle(int rotationZ)
     {
         thopframwork.ThopFW.TransformAll.RotateTo(this.gameObject, new Vector3(0, 0, this.transform.localEulerAngles.z + rotationZ), 0.8f, null, 
             () => 
             {
-                isRotate = false;
+                isWorking = false;
                 myPuzzleController.CheckPuzzle();
             });
 	}
 
-   
+    public void RequestNewPuzzle()
+    {
+        Vector3 defaultScale = this.transform.localScale;
+        if (!isWorking)
+        {
+            isWorking = true;
+
+            thopframwork.ThopFW.TransformAll.ScaleTo(this.gameObject, Vector3.zero, 0.5f, null,
+            () =>
+            {
+                RandomNewColor();
+                thopframwork.ThopFW.TransformAll.ScaleTo(this.gameObject, defaultScale, 0.5f, null,
+                () =>
+                {
+                    isWorking = false;
+                    myPuzzleController.CheckPuzzle();
+                });
+            });
+        }
+    }
+
+    void RandomNewColor()
+    {
+
+    }
+    
+
+
+
 
 }
