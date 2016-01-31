@@ -130,7 +130,133 @@ ModelImporter:
     animationScaleError: .5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: man:joint12
+        weight: 1
+      - path: man:joint12/man:joint4
+        weight: 1
+      - path: man:joint12/man:joint4/man:joint5
+        weight: 1
+      - path: man:joint12/man:joint4/man:joint5/man:joint6
+        weight: 1
+      - path: man:joint12/man:joint13
+        weight: 1
+      - path: man:joint12/man:joint13/man:joint7
+        weight: 1
+      - path: man:joint12/man:joint13/man:joint7/man:joint8
+        weight: 1
+      - path: man:joint12/man:joint13/man:joint7/man:joint8/man:joint9
+        weight: 1
+      - path: man:joint12/man:joint13/man:joint7/man:joint8/man:joint9/man:joint10
+        weight: 1
+      - path: man:joint12/man:joint13/man:joint7/man:joint8/man:joint9/man:joint10/man:joint11
+        weight: 1
+      - path: man:joint12/man:joint13/man:joint14
+        weight: 1
+      - path: man:joint12/man:joint13/man:joint14/man:joint15
+        weight: 1
+      - path: man:joint12/man:joint13/man:joint16
+        weight: 1
+      - path: man:joint12/man:joint13/man:joint16/man:joint17
+        weight: 1
+      - path: man:joint12/man:joint13/man:joint16/man:joint17/man:joint18
+        weight: 1
+      - path: man:joint12/man:joint13/man:joint16/man:joint17/man:joint18/man:joint19
+        weight: 1
+      - path: man:joint12/man:joint13/man:joint16/man:joint17/man:joint18/man:joint19/man:joint20
+        weight: 1
+      - path: man:joint12/man:joint21
+        weight: 1
+      - path: man:joint12/man:joint21/man:joint22
+        weight: 1
+      - path: man:joint12/man:joint21/man:joint22/man:joint23
+        weight: 1
+      - path: man:man:polySurface297
+        weight: 1
+      - path: man:polySurface297
+        weight: 1
+      - path: sass:pCube1
+        weight: 1
+      - path: sass:pCube1/sass:transform257
+        weight: 1
+      - path: sass:pCube2
+        weight: 1
+      - path: sass:pCube2/sass:transform256
+        weight: 1
+      - path: sass:pCube3
+        weight: 1
+      - path: sass:pCube3/sass:transform255
+        weight: 1
+      - path: sass:pCube4
+        weight: 1
+      - path: sass:pCube4/sass:transform254
+        weight: 1
+      - path: sass:polySurface196
+        weight: 1
+      - path: sass:polySurface196/sass:polySurface285 1
+        weight: 1
+      - path: sass:polySurface196/sass:polySurface285 1/sass:transform258
+        weight: 1
+      - path: sass:polySurface196/sass:polySurface286 1
+        weight: 1
+      - path: sass:polySurface196/sass:polySurface286 1/sass:transform252
+        weight: 1
+      - path: sass:polySurface196/sass:polySurface287
+        weight: 1
+      - path: sass:polySurface196/sass:transform250
+        weight: 1
+      - path: sass:polySurface285
+        weight: 1
+      - path: sass:polySurface285/polySurface289
+        weight: 1
+      - path: sass:polySurface285/polySurface289/sass:transform260
+        weight: 1
+      - path: sass:polySurface285/sass:polySurface289 1
+        weight: 1
+      - path: sass:polySurface285/sass:polySurface289 1/sass:transform261
+        weight: 1
+      - path: sass:polySurface285/sass:transform259
+        weight: 1
+      - path: sass:polySurface286
+        weight: 1
+      - path: sass:polySurface286/sass:transform253
+        weight: 1
+      - path: sass:polySurface289
+        weight: 1
+      - path: sass:polySurface289/sass:sass:transform1
+        weight: 1
+      - path: sass:polySurface295
+        weight: 1
+      - path: sass:polySurface295/sass:sass:transform2
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []
