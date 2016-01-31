@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-
-public class MainMenuControl : MonoBehaviour {
+using MasterDJ;
+public class MainMenuControl : ControlVoulme {
 
 	private GameObject optPanel;
 	private GameObject crePanel;
@@ -10,6 +10,7 @@ public class MainMenuControl : MonoBehaviour {
 	private Slider soundSli;
 
 	private Text volumeTxt;
+	public AudioClip soundClick;
 
 	void Start () {
 		optPanel = GameObject.Find ("Option_panel");
@@ -26,9 +27,9 @@ public class MainMenuControl : MonoBehaviour {
 			soundSli.value = 5;
 			volumeTxt.text = "5";
 		}
-
+		mastersV = soundSli.value / 10f;
 		//Volume = soundSli.value / 10f;
-
+		UpdateDJ ();
 		optPanel.SetActive (false);
 		crePanel.SetActive (false);
 
@@ -36,10 +37,12 @@ public class MainMenuControl : MonoBehaviour {
 	}
 
 	public void StartGame () {
-		Application.LoadLevel ("Room_0");
+		DJ.PlayAudioButton (soundClick,()=>Application.LoadLevel ("Room_0"));
+
 	}
 
 	public void Option () {
+		DJ.PlayAudioButton (soundClick);
 		if (!optPanel.activeSelf) {
 			optPanel.SetActive (true);
 		} else {
@@ -48,13 +51,16 @@ public class MainMenuControl : MonoBehaviour {
 	}
 
 	public void AdjustSound () {
+		DJ.PlayAudioButton (soundClick);
+		mastersV = soundSli.value / 10f;
 		//Volume = soundSli.value / 10f;
 		volumeTxt.text = soundSli.value.ToString ();
-
+		UpdateDJ ();
 		PlayerPrefs.SetFloat ("Volume", soundSli.value);
 	}
 
 	public void Credit () {
+		DJ.PlayAudioButton (soundClick);
 		if (!crePanel.activeSelf) {
 			crePanel.SetActive (true);
 		} else {
