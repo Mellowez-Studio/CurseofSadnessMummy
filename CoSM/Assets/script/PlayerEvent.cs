@@ -8,6 +8,7 @@ public class PlayerEvent : MonoBehaviour {
     GameObject sprite;
     Vector3 ScaleOp = new Vector3(0.25f,0.25f,0.25f);
     viewborad myViewBorad;
+    private bool isCilckOk = false; 
     // Use this for initialization
     void Start()
     {
@@ -31,9 +32,12 @@ public class PlayerEvent : MonoBehaviour {
     {
         if (other.tag == "Player")
         {
-            iswork = false;
-            StopCoroutine(isWork());
-            ThopFW.TransformAll.ScaleTo(sprite, Vector3.zero, 0.25f,null,()=> { myViewBorad.endViewBorad(); });
+            if (!isCilckOk)
+            {
+                iswork = false;
+                StopCoroutine(isWork());
+                ThopFW.TransformAll.ScaleTo(sprite, Vector3.zero, 0.25f, null, () => { myViewBorad.endViewBorad(); });
+            }
         }
     }
     bool iswork = true;
@@ -43,7 +47,7 @@ public class PlayerEvent : MonoBehaviour {
         {
             if (Input.GetKeyUp(KeyCode.Space))
             {
-                ThopFW.TransformAll.ScaleTo(sprite, Vector3.zero, 0.25f, null, () => { eventA.Invoke(); StopCoroutine(isWork()); });
+                ThopFW.TransformAll.ScaleTo(sprite, Vector3.zero, 0.25f, null, () => { eventA.Invoke(); StopCoroutine(isWork()); isCilckOk = true; });
             }
             yield return null ;
         }
