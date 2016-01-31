@@ -14,6 +14,9 @@ public class PuzzleClass : MonoBehaviour
     public bool isWorking = false;
 
     Vector3 defaultScale;
+    
+    [SerializeField]
+    GameObject[] jewel;
 
     public void TurnRight()
 	{
@@ -54,10 +57,10 @@ public class PuzzleClass : MonoBehaviour
 	}
 
     public void RequestNewPuzzle()
-    {
-        defaultScale = this.transform.localScale;
+    {        
         if (!isWorking)
         {
+            defaultScale = this.transform.localScale;
             isWorking = true;
 
             thopframwork.ThopFW.TransformAll.ScaleTo(this.gameObject, Vector3.zero, 0.4f, null,
@@ -65,7 +68,7 @@ public class PuzzleClass : MonoBehaviour
             {
                 print("OLO");
                 RandomNewColor();
-                Invoke("ScaleToNormal",0.2f);
+                Invoke("ScaleToNormal",0.1f);
             });
         }
     }
@@ -80,23 +83,81 @@ public class PuzzleClass : MonoBehaviour
                 });
     }
 
-    void RandomNewColor()
+    public void RandomNewColor()
     {
+        int[] x= new int[4];
+        x[0] = 0;
+        x[1] = 1;
+        x[2] = 2;
+        x[3] = 3;
+        Vector4 newColorValue = Shuffle(x);
+        slotUp = GetColor((int)newColorValue.x);
+        slotLeft = GetColor((int)newColorValue.y);
+        slotDown = GetColor((int)newColorValue.z);
+        slotRight = GetColor((int)newColorValue.w);
 
+        SetJewelColor();
     }
 
-    public void Shuffle(int[] alpha)
+    public Vector4 Shuffle(int[] alpha)
     {
+        Vector4 newValue;
         for (int i = 0; i < alpha.Length; i++)
         {
             int temp = alpha[i];
             int randomIndex = UnityEngine.Random.Range(i, alpha.Length);
             alpha[i] = alpha[randomIndex];
             alpha[randomIndex] = temp;
-            print(alpha[i]);
         }
+        newValue.x = alpha[0];
+        newValue.y = alpha[1];
+        newValue.z = alpha[2];
+        newValue.w = alpha[3];
+        return newValue;
     }
 
+    PuzzleController.PuzzleColor GetColor(int x)
+    {
+        PuzzleController.PuzzleColor y = PuzzleController.PuzzleColor.Blue;
+        switch (x)
+        {
+            case 0: y = PuzzleController.PuzzleColor.Red;
+                break;
+            case 1:y = PuzzleController.PuzzleColor.Blue;
+                break;
+            case 2:y = PuzzleController.PuzzleColor.Green;
+                break;
+            case 3:y = PuzzleController.PuzzleColor.Yellow;
+                break;
+        }
+        return y;
+    }
+
+    void SetJewelColor()
+    {
+        jewel[0].GetComponentInChildren<MeshRenderer>().material.color = GetColor(slotUp);
+        jewel[1].GetComponentInChildren<MeshRenderer>().material.color = GetColor(slotRight);
+        jewel[2].GetComponentInChildren<MeshRenderer>().material.color = GetColor(slotDown);
+        jewel[3].GetComponentInChildren<MeshRenderer>().material.color = GetColor(slotLeft);
+    }
+
+    Color GetColor(PuzzleController.PuzzleColor slot)
+    {
+        Color c = Color.red;
+
+        switch(slot)
+        {
+            case PuzzleController.PuzzleColor.Blue: c = Color.blue;
+                break;
+            case PuzzleController.PuzzleColor.Green: c = Color.green;
+                break;
+            case PuzzleController.PuzzleColor.Red: c = Color.red;
+                break;
+            case PuzzleController.PuzzleColor.Yellow: c = Color.yellow;
+                break;
+        }
+        return c;
+    }
 
 
 

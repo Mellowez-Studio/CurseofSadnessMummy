@@ -29,12 +29,15 @@ public class PuzzleController : MonoBehaviour {
     [SerializeField]
     string OnFinish2;
 
+    [SerializeField]
+    Transform puzzleBG;
+
     public enum PuzzleColor
 	{
-		Red,
-		Blue,
-		Green,
-		Yellow
+		Red = 0,
+		Blue = 1,
+		Green = 2,
+		Yellow = 3
 	}
 
 	public void GeneratePuzzle()
@@ -49,10 +52,10 @@ public class PuzzleController : MonoBehaviour {
 			for(int j = 0; j < dimentionY; j++)
 			{
 				Vector3 instantPos = new Vector3(
-					transform.localPosition.x - ((dimentionX - 1)/2f) + (i*instantOffset),
-					transform.localPosition.y + ((dimentionY - 1)/2f) - (j*instantOffset),
-					transform.localPosition.z);
-				Puzzles[i,j] = Instantiate (PuzzlePrefab,instantPos,transform.rotation) as GameObject;
+					0 - ((dimentionX - 1)/2f) + (i*instantOffset),
+					0 + ((dimentionY - 1)/2f) - (j*instantOffset),
+					0);
+				Puzzles[i,j] = Instantiate (PuzzlePrefab,Vector3.zero,transform.rotation) as GameObject;
 				Puzzles[i,j].transform.SetParent(this.transform);
                 Puzzles[i, j].transform.localPosition = instantPos;
 
@@ -60,6 +63,7 @@ public class PuzzleController : MonoBehaviour {
                 //Puzzles[i, j].tag = "";
                 targetPuzzleClass = Puzzles[i, j].GetComponent<PuzzleClass>();
                 targetPuzzleClass.myPuzzleController = this;
+                targetPuzzleClass.RandomNewColor();
                 PuzzlesClass.Add(targetPuzzleClass);
             }
         }
@@ -110,6 +114,12 @@ public class PuzzleController : MonoBehaviour {
             thopframwork.ThopFW.TransformAll.RotateTo(puzzle.gameObject, new Vector3(0, 0, puzzle.transform.localEulerAngles.z + 90), 1.5f, null,null);
             thopframwork.ThopFW.TransformAll.ScaleTo(puzzle.gameObject, Vector3.zero, 1.5f, null, null);
         }
+    }
+
+    void Start()
+    {
+        puzzleBG.localScale = new Vector3((int)dimention.x/2f, (int)dimention.y/2f,1);
+
     }
     
 }
