@@ -61,4 +61,14 @@ public class MainMenuControl : MonoBehaviour {
 			crePanel.SetActive (false);
 		} 
 	}
+
+	public void Shuffle (int[] alpha) {
+		for (int i = 0; i < alpha.Length; i++) {
+			int temp = alpha[i];
+			int randomIndex = Random.Range(i, alpha.Length);
+			alpha[i] = alpha[randomIndex];
+			alpha[randomIndex] = temp;
+			print (alpha[i]);
+		}
+	}
 }
