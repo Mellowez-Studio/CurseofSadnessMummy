@@ -13,8 +13,7 @@ public class GameManger : MonoBehaviour {
     // Use this for initialization
     void Awake()
 	{      DontDestroyOnLoad (this.gameObject);
-        DontDestroyOnLoad(canvasPopup);
-        DontDestroyOnLoad(inGameCanvas);
+       
         if (!GameObject.Find("popUpCavas"))
         {
             GameObject a = Instantiate(canvasPopup);
@@ -23,6 +22,8 @@ public class GameManger : MonoBehaviour {
         GameObject b = Instantiate(inGameCanvas);
         b.name = "InGameCanvas";
         InsPos = GameObject.Find("PosIns_"+ nextDoor).transform;
+		DontDestroyOnLoad(canvasPopup);
+		DontDestroyOnLoad(inGameCanvas);
     }
     void Start()
     {
