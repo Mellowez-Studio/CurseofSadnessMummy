@@ -3,7 +3,7 @@ using System.Collections;
 using thopframwork;
 public class colorx4 {
 
-	public int color1 = 5;
+	/*public int color1 = 5;
 	public int color2 = 5;
 	public int color3 = 5;
 	public int color4 = 5;
@@ -24,5 +24,5 @@ public class colorx4 {
 			randomc (x);
 		else 
 			return value;
-	}
+	}*/
 }
