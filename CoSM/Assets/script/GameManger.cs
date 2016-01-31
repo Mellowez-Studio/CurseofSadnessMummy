@@ -19,8 +19,8 @@ public class GameManger : MonoBehaviour {
             GameObject a = Instantiate(canvasPopup);
             a.name = "popUpCavas";
         }
-        GameObject b = Instantiate(inGameCanvas);
-        b.name = "InGameCanvas";
+		inGameCanvas  = Instantiate(inGameCanvas) as GameObject;
+		inGameCanvas.name = "InGameCanvas";
         InsPos = GameObject.Find("PosIns_"+ nextDoor).transform;
 		DontDestroyOnLoad(canvasPopup);
 		DontDestroyOnLoad(inGameCanvas);

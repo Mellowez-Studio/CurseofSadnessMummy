@@ -23,7 +23,7 @@ public class UIControl : MonoBehaviour {
 	private float timeLeft;
 	// Use this for initialization
 	void Start () {
-		mapPanel = GameObject.Find ("Map_panel");
+		//mapPanel = GameObject.Find ("Map_panel");
 		itemPanel = GameObject.Find ("Item_panel");
 
 		timeUI = GameObject.Find ("CurseTime").GetComponent<Image> ();
@@ -34,7 +34,8 @@ public class UIControl : MonoBehaviour {
 			slot[i - 1] = GameObject.Find ("Slot_" + i).GetComponent<Button> ();
 		}
 
-		mapPanel.SetActive (false);
+
+		//mapPanel.SetActive (false);
 		itemPanel.SetActive (false);
 
 		isPause = false;
@@ -93,12 +94,12 @@ public class UIControl : MonoBehaviour {
 	}
 
 	public void Map () {
-		if (mapPanel.activeSelf) {
-			mapPanel.SetActive (false);
-			return;
-		}
-
-		mapPanel.SetActive (true);
+//		if (mapPanel.activeSelf) {
+//			mapPanel.SetActive (false);
+//			return;
+//		}
+//
+//		mapPanel.SetActive (true);
 	}
 
 	public void StartStop () {

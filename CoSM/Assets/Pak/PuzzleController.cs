@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class PuzzleController : MonoBehaviour {
 
@@ -31,6 +32,9 @@ public class PuzzleController : MonoBehaviour {
 
     [SerializeField]
     Transform puzzleBG;
+
+
+
 
     public enum PuzzleColor
 	{
@@ -100,7 +104,8 @@ public class PuzzleController : MonoBehaviour {
         {
             print(" FINISH !!");
             data_Key_tresure.addNameKey(OnFinish2);
-            PopUpBase.PopUpText("Puzzle Clear!!", () => OnFinish.Invoke());
+			//PopUpBase.PopUpImg(,PopUpBase.PopUpText("Some door is opened.", () => OnFinish.Invoke()));
+            PopUpBase.PopUpText("Some door is opened.", () => OnFinish.Invoke());
             Invoke("ClosePuzzle", 1f);
         }
         else

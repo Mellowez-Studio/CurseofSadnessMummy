@@ -11,11 +11,12 @@ public class MainMenuControl : ControlVoulme {
 
 	private Text volumeTxt;
 	public AudioClip soundClick;
+	public AudioClip soundBG;
 
 	void Start () {
 		optPanel = GameObject.Find ("Option_panel");
 		crePanel = GameObject.Find ("Credit_panel");
-
+		DJ.PlayAudioBackground (soundBG,null,true);
 		soundSli = GameObject.Find ("SoundAdjust").GetComponent<Slider> ();
 
 		volumeTxt = GameObject.Find ("SoundLv_txt").GetComponent<Text> ();
@@ -38,7 +39,7 @@ public class MainMenuControl : ControlVoulme {
 
 	public void StartGame () {
 		DJ.PlayAudioButton (soundClick,()=>Application.LoadLevel ("Room_0"));
-
+	
 	}
 
 	public void Option () {

@@ -50,9 +50,9 @@ public class PuzzleClass : MonoBehaviour
     {
         thopframwork.ThopFW.TransformAll.RotateTo(this.gameObject, new Vector3(this.transform.localEulerAngles.x, this.transform.localEulerAngles.y, this.transform.localEulerAngles.z + rotationZ), 0.8f, null, 
             () => 
-            {
-                isWorking = false;
+            {                
                 myPuzzleController.CheckPuzzle();
+                isWorking = false;
             });
 	}
 
@@ -60,13 +60,14 @@ public class PuzzleClass : MonoBehaviour
     {        
         if (!isWorking)
         {
-            defaultScale = this.transform.localScale;
             isWorking = true;
+            defaultScale = this.transform.localScale;            
 
             thopframwork.ThopFW.TransformAll.ScaleTo(this.gameObject, Vector3.zero, 0.4f, null,
             () =>
             {
                 print("OLO");
+                transform.localEulerAngles = Vector3.zero;
                 RandomNewColor();
                 Invoke("ScaleToNormal",0.1f);
             });
@@ -77,9 +78,9 @@ public class PuzzleClass : MonoBehaviour
     {
         thopframwork.ThopFW.TransformAll.ScaleTo(this.gameObject, defaultScale, 0.4f, null,
                 () =>
-                {
-                    isWorking = false;
+                {                    
                     myPuzzleController.CheckPuzzle();
+                    isWorking = false;
                 });
     }
 
