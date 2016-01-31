@@ -1,110 +1,110 @@
 fileFormatVersion: 2
-guid: fe8e843b3e77c4a48a7344b103dcc0bc
-timeCreated: 1454133244
+guid: a225b25713943044c80c18deb0829308
+timeCreated: 1454210036
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: man:joint10
-    100004: man:joint11
-    100006: man:joint12
-    100008: man:joint13
-    100010: man:joint14
-    100012: man:joint15
-    100014: man:joint16
-    100016: man:joint17
-    100018: man:joint18
-    100020: man:joint19
-    100022: man:joint20
-    100024: man:joint21
-    100026: man:joint22
-    100028: man:joint23
-    100030: man:joint4
-    100032: man:joint5
-    100034: man:joint6
-    100036: man:joint7
-    100038: man:joint8
-    100040: man:joint9
-    100042: man:man:polySurface297
-    100044: man:polySurface297
-    100046: polySurface289
-    100048: sass:pCube1
-    100050: sass:pCube2
-    100052: sass:pCube3
-    100054: sass:pCube4
-    100056: sass:polySurface196
-    100058: sass:polySurface285
-    100060: sass:polySurface285 1
-    100062: sass:polySurface286
-    100064: sass:polySurface286 1
-    100066: sass:polySurface287
-    100068: sass:polySurface289
-    100070: sass:polySurface289 1
-    100072: sass:polySurface295
-    100074: sass:sass:transform1
-    100076: sass:sass:transform2
-    100078: sass:transform250
-    100080: sass:transform252
-    100082: sass:transform253
-    100084: sass:transform254
-    100086: sass:transform255
-    100088: sass:transform256
-    100090: sass:transform257
-    100092: sass:transform258
-    100094: sass:transform259
-    100096: sass:transform260
-    100098: sass:transform261
-    400000: //RootNode
-    400002: man:joint10
-    400004: man:joint11
-    400006: man:joint12
-    400008: man:joint13
-    400010: man:joint14
-    400012: man:joint15
-    400014: man:joint16
-    400016: man:joint17
-    400018: man:joint18
-    400020: man:joint19
-    400022: man:joint20
-    400024: man:joint21
-    400026: man:joint22
-    400028: man:joint23
-    400030: man:joint4
-    400032: man:joint5
-    400034: man:joint6
-    400036: man:joint7
-    400038: man:joint8
-    400040: man:joint9
-    400042: man:man:polySurface297
-    400044: man:polySurface297
-    400046: polySurface289
-    400048: sass:pCube1
-    400050: sass:pCube2
-    400052: sass:pCube3
-    400054: sass:pCube4
-    400056: sass:polySurface196
-    400058: sass:polySurface285
-    400060: sass:polySurface285 1
-    400062: sass:polySurface286
-    400064: sass:polySurface286 1
-    400066: sass:polySurface287
-    400068: sass:polySurface289
-    400070: sass:polySurface289 1
-    400072: sass:polySurface295
-    400074: sass:sass:transform1
-    400076: sass:sass:transform2
-    400078: sass:transform250
-    400080: sass:transform252
-    400082: sass:transform253
-    400084: sass:transform254
-    400086: sass:transform255
-    400088: sass:transform256
-    400090: sass:transform257
-    400092: sass:transform258
-    400094: sass:transform259
-    400096: sass:transform260
-    400098: sass:transform261
+    100000: man:joint10
+    100002: man:joint11
+    100004: man:joint12
+    100006: man:joint13
+    100008: man:joint14
+    100010: man:joint15
+    100012: man:joint16
+    100014: man:joint17
+    100016: man:joint18
+    100018: man:joint19
+    100020: man:joint20
+    100022: man:joint21
+    100024: man:joint22
+    100026: man:joint23
+    100028: man:joint4
+    100030: man:joint5
+    100032: man:joint6
+    100034: man:joint7
+    100036: man:joint8
+    100038: man:joint9
+    100040: man:man:polySurface297
+    100042: man:polySurface297
+    100044: polySurface289
+    100046: sass:pCube1
+    100048: sass:pCube2
+    100050: sass:pCube3
+    100052: sass:pCube4
+    100054: sass:polySurface196
+    100056: sass:polySurface285
+    100058: sass:polySurface285 1
+    100060: sass:polySurface286
+    100062: sass:polySurface286 1
+    100064: sass:polySurface287
+    100066: sass:polySurface289
+    100068: sass:polySurface289 1
+    100070: sass:polySurface295
+    100072: sass:sass:transform1
+    100074: sass:sass:transform2
+    100076: sass:transform250
+    100078: sass:transform252
+    100080: sass:transform253
+    100082: sass:transform254
+    100084: sass:transform255
+    100086: sass:transform256
+    100088: sass:transform257
+    100090: sass:transform258
+    100092: sass:transform259
+    100094: sass:transform260
+    100096: sass:transform261
+    100098: //RootNode
+    400000: man:joint10
+    400002: man:joint11
+    400004: man:joint12
+    400006: man:joint13
+    400008: man:joint14
+    400010: man:joint15
+    400012: man:joint16
+    400014: man:joint17
+    400016: man:joint18
+    400018: man:joint19
+    400020: man:joint20
+    400022: man:joint21
+    400024: man:joint22
+    400026: man:joint23
+    400028: man:joint4
+    400030: man:joint5
+    400032: man:joint6
+    400034: man:joint7
+    400036: man:joint8
+    400038: man:joint9
+    400040: man:man:polySurface297
+    400042: man:polySurface297
+    400044: polySurface289
+    400046: sass:pCube1
+    400048: sass:pCube2
+    400050: sass:pCube3
+    400052: sass:pCube4
+    400054: sass:polySurface196
+    400056: sass:polySurface285
+    400058: sass:polySurface285 1
+    400060: sass:polySurface286
+    400062: sass:polySurface286 1
+    400064: sass:polySurface287
+    400066: sass:polySurface289
+    400068: sass:polySurface289 1
+    400070: sass:polySurface295
+    400072: sass:sass:transform1
+    400074: sass:sass:transform2
+    400076: sass:transform250
+    400078: sass:transform252
+    400080: sass:transform253
+    400082: sass:transform254
+    400084: sass:transform255
+    400086: sass:transform256
+    400088: sass:transform257
+    400090: sass:transform258
+    400092: sass:transform259
+    400094: sass:transform260
+    400096: sass:transform261
+    400098: //RootNode
     4300000: man:man:polySurface297
     4300002: man:polySurface297
     7400000: Take 001
@@ -135,7 +135,7 @@ ModelImporter:
       name: Take 001
       takeName: Take 001
       firstFrame: 1
-      lastFrame: 80
+      lastFrame: 100
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

@@ -37,7 +37,7 @@ public class MainMenuControl : MonoBehaviour {
 	}
 
 	public void StartGame () {
-		Application.LoadLevel ("gameplay");
+		Application.LoadLevel ("Room_0");
 	}
 
 	public void Option () {
