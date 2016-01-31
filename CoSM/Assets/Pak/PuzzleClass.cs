@@ -12,8 +12,10 @@ public class PuzzleClass : MonoBehaviour
     public PuzzleController.PuzzleColor slotRight;
 
     public bool isWorking = false;
-	
-	public void TurnRight()
+
+    Vector3 defaultScale;
+
+    public void TurnRight()
 	{
         if (!isWorking)
         {
@@ -43,7 +45,7 @@ public class PuzzleClass : MonoBehaviour
 
     void SpinPuzzle(int rotationZ)
     {
-        thopframwork.ThopFW.TransformAll.RotateTo(this.gameObject, new Vector3(0, 0, this.transform.localEulerAngles.z + rotationZ), 0.8f, null, 
+        thopframwork.ThopFW.TransformAll.RotateTo(this.gameObject, new Vector3(this.transform.localEulerAngles.x, this.transform.localEulerAngles.y, this.transform.localEulerAngles.z + rotationZ), 0.8f, null, 
             () => 
             {
                 isWorking = false;
@@ -53,23 +55,29 @@ public class PuzzleClass : MonoBehaviour
 
     public void RequestNewPuzzle()
     {
-        Vector3 defaultScale = this.transform.localScale;
+        defaultScale = this.transform.localScale;
         if (!isWorking)
         {
             isWorking = true;
 
-            thopframwork.ThopFW.TransformAll.ScaleTo(this.gameObject, Vector3.zero, 0.5f, null,
+            thopframwork.ThopFW.TransformAll.ScaleTo(this.gameObject, Vector3.zero, 0.4f, null,
             () =>
             {
+                print("OLO");
                 RandomNewColor();
-                thopframwork.ThopFW.TransformAll.ScaleTo(this.gameObject, defaultScale, 0.5f, null,
+                Invoke("ScaleToNormal",0.2f);
+            });
+        }
+    }
+
+    void ScaleToNormal()
+    {
+        thopframwork.ThopFW.TransformAll.ScaleTo(this.gameObject, defaultScale, 0.4f, null,
                 () =>
                 {
                     isWorking = false;
                     myPuzzleController.CheckPuzzle();
                 });
-            });
-        }
     }
 
     void RandomNewColor()

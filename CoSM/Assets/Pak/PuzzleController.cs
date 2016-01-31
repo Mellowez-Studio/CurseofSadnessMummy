@@ -49,12 +49,15 @@ public class PuzzleController : MonoBehaviour {
 			for(int j = 0; j < dimentionY; j++)
 			{
 				Vector3 instantPos = new Vector3(
-					transform.position.x - ((dimentionX - 1)/2f) + (i*instantOffset),
-					transform.position.y + ((dimentionY - 1)/2f) - (j*instantOffset),
-					transform.position.z);
+					transform.localPosition.x - ((dimentionX - 1)/2f) + (i*instantOffset),
+					transform.localPosition.y + ((dimentionY - 1)/2f) - (j*instantOffset),
+					transform.localPosition.z);
 				Puzzles[i,j] = Instantiate (PuzzlePrefab,instantPos,transform.rotation) as GameObject;
 				Puzzles[i,j].transform.SetParent(this.transform);
-				Puzzles[i,j].name = "Puzzles"+i+"_"+j;
+                Puzzles[i, j].transform.localPosition = instantPos;
+
+                Puzzles[i,j].name = "Puzzles"+i+"_"+j;
+                //Puzzles[i, j].tag = "";
                 targetPuzzleClass = Puzzles[i, j].GetComponent<PuzzleClass>();
                 targetPuzzleClass.myPuzzleController = this;
                 PuzzlesClass.Add(targetPuzzleClass);
