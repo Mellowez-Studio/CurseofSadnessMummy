@@ -14,31 +14,35 @@ public class PuzzleClass : MonoBehaviour
 	
 	public void TurnRight()
 	{
-		PuzzleController.PuzzleColor tempSlotUp = slotUp;
-		slotUp = slotLeft;
-		slotLeft = slotDown;
-		slotDown = slotRight;
-		slotRight = tempSlotUp;
-
         if (!isRotate)
         {
+			PuzzleController.PuzzleColor tempSlotUp = slotUp;			
+			slotUp = slotLeft;
+			slotLeft = slotDown;
+			slotDown = slotRight;
+			slotRight = tempSlotUp;
             isRotate = true;
-            SpinPuzzle(90);
+            SpinPuzzle(-90);
         }
     }
-	
+	/*
 	public void TurnLeft()
 	{
-		PuzzleController.PuzzleColor tempSlotUp = slotUp;
-		slotUp = slotRight;
-		slotRight = slotDown;
-		slotDown = slotLeft;
-		slotLeft = tempSlotUp;
-	}
+	 	if (!isRotate)
+        {
+			PuzzleController.PuzzleColor tempSlotUp = slotUp;
+			slotUp = slotRight;
+			slotRight = slotDown;
+			slotDown = slotLeft;
+			slotLeft = tempSlotUp;
+			isRotate = true;
+        	SpinPuzzle(90);
+		}
+	}*/
 	
 	public void SpinPuzzle(int rotationZ)
     {
-        thopframwork.ThopFW.TransformAll.RotateTo(this.gameObject, new Vector3(0, 0, this.transform.localEulerAngles.z + rotationZ), 1.5f, null, 
+        thopframwork.ThopFW.TransformAll.RotateTo(this.gameObject, new Vector3(0, 0, this.transform.localEulerAngles.z + rotationZ), 0.5f, null, 
             () => 
             {
                 isRotate = false;
