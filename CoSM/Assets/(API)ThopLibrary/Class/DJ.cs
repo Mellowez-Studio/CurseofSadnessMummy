@@ -104,13 +104,15 @@ public class DJ : MonoBehaviour
     private static void Fin(int type,AudioClip clip, Action onFinish = null,float timeIsPlay = 0f)
     {
         if (type == 0)
-            DJ.PlayAudioBackground(clip, onFinish);
-        else if (type == 1)
-            DJ.PlayAudioTalk(clip, onFinish);
-        else if (type == 2)
-            DJ.PlayAudioButton(clip, onFinish);
-        else if (type == 3)
-            DJ.PlayAudioEffect(clip,timeIsPlay, onFinish);
+			DJ.PlayAudioBackground (clip, onFinish);
+		else if (type == 1)
+			DJ.PlayAudioTalk (clip, onFinish);
+		else if (type == 2)
+			DJ.PlayAudioButton (clip, onFinish);
+		else if (type == 3)
+			DJ.PlayAudioEffect (clip, timeIsPlay, onFinish);
+		else if (type == 4)
+			DJ.PlayAudioEffectLoop (clip);
     }
 
     public static void Instan(int type, AudioClip clip = null, Action onFinish = null,float timeIsPlay = 0f)
@@ -131,19 +133,20 @@ public class DJ : MonoBehaviour
                 instan = inst.GetComponent<DJ>();
             }
         }
-        Fin(type, clip, onFinish);
+		Fin(type, clip, onFinish,timeIsPlay);
     }
     public static bool isInstan()
     {
         return instan;
     }
 
-    public static void PlayAudioBackground(AudioClip clip, Action onFinish = null)
+    public static void PlayAudioBackground(AudioClip clip, Action onFinish = null,bool onLoop = false)
     {
         if (instan != null)
         {
             audiosourec[0].clip = clip;            
             audiosourec[0].Play();
+			audiosourec[0].loop = onLoop;
             StaticCoroutine.instance.StartCoroutine(chackIsPlay(audiosourec[0], onFinish));
         }
         else
@@ -192,6 +195,20 @@ public class DJ : MonoBehaviour
         else
             Instan(3, clip, onFinish, timeIsPlay);
     }   
+	public static AudioSource PlayAudioEffectLoop(AudioClip clip)
+	{
+		if (instan != null) {
+			AudioSource tmp = audioPooling.getPool ();
+			tmp.volume = volumeEffect;
+			tmp.clip = clip;
+			tmp.mute = muteEffect;
+			tmp.Play();
+			return tmp;
+		}
+		else
+			Instan(4, clip);
+		return null;
+	}
  
     static IEnumerator chackIsPlay(AudioSource source, Action onFinish)
     {
