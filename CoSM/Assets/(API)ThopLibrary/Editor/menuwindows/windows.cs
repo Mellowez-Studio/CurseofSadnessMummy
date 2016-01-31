@@ -49,5 +49,12 @@ public class windows : EditorWindow {
             Instantiate(Resources.Load("System/DJ")as GameObject);          
         }
     }
+	[MenuItem("ThopFW/AddComponent/ButtonClick(Right)")]
+	static void ButtonClickS()
+	{
+		GameObject SelectObject = Selection.activeGameObject;
+		if (SelectObject != null)
+			SelectObject.AddComponent<buttonClickRiht>();
+	}
    
 }
