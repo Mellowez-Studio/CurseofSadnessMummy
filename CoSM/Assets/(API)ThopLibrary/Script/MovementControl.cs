@@ -34,11 +34,14 @@ public class MovementControl : MonoBehaviour {
     {        
         while (true)
         {
-            if (Input.GetAxis("Vertical") > 0)
-                target.Translate(target.GetChild(0).forward * moveSpeed * Input.GetAxis("Vertical") * Time.deltaTime);
-            else
-                target.Translate(target.GetChild(0).forward * moveSpeed/2 * Input.GetAxis("Vertical") * Time.deltaTime);
-            target.Translate(target.GetChild(0).right * moveSpeed*2/3 * Input.GetAxis("Horizontal") * Time.deltaTime);
+            if (GameManger.isPlayGame)
+            {
+                if (Input.GetAxis("Vertical") > 0)
+                    target.Translate(target.GetChild(0).forward * moveSpeed * Input.GetAxis("Vertical") * Time.deltaTime);
+                else
+                    target.Translate(target.GetChild(0).forward * moveSpeed / 2 * Input.GetAxis("Vertical") * Time.deltaTime);
+                target.Translate(target.GetChild(0).right * moveSpeed * 2 / 3 * Input.GetAxis("Horizontal") * Time.deltaTime);
+            }
             yield return null;
         }        
     }

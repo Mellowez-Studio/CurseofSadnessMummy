@@ -1,13 +1,27 @@
 -debug
 -target:library
 -nowarn:0169
--out:Temp/Assembly-CSharp.dll
+-out:Temp/Assembly-CSharp-Editor.dll
 -r:"C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll"
--r:"C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll"
--r:"C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll"
--r:"C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll"
--r:"C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll"
 -r:"C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll"
+-r:Library/ScriptAssemblies/Assembly-CSharp.dll
+-r:"C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll"
+-r:"C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll"
+-r:"C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll"
+-r:"C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll"
+-r:"C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll"
+-r:"C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll"
+-r:"C:\Program Files (x86)\Unity\Editor\Data\PlaybackEngines\androidplayer/UnityEditor.Android.Extensions.dll"
+-r:"C:/Program Files (x86)/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll"
+-r:"C:\Program Files (x86)\Unity\Editor\Data\PlaybackEngines\wp8support/UnityEditor.WP8.Extensions.dll"
+-r:"C:\Program Files (x86)\Unity\Editor\Data\PlaybackEngines\metrosupport/UnityEditor.Metro.Extensions.dll"
+-r:"C:\Program Files (x86)\Unity\Editor\Data\PlaybackEngines\TizenPlayer/UnityEditor.Tizen.Extensions.dll"
+-r:"C:\Program Files (x86)\Unity\Editor\Data\PlaybackEngines\stvplayer/UnityEditor.SamsungTV.Extensions.dll"
+-r:"C:\Program Files (x86)\Unity\Editor\Data\PlaybackEngines\webglsupport/UnityEditor.WebGL.Extensions.dll"
+-r:"C:\Program Files (x86)\Unity\Editor\Data\PlaybackEngines\linuxstandalonesupport/UnityEditor.LinuxStandalone.Extensions.dll"
+-r:"C:\Program Files (x86)\Unity\Editor\Data\PlaybackEngines\windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll"
+-r:"C:\Program Files (x86)\Unity\Editor\Data\PlaybackEngines\macstandalonesupport/UnityEditor.OSXStandalone.Extensions.dll"
+-r:"C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\2015\Editor\SyntaxTree.VisualStudio.Unity.Bridge.dll"
 -r:"C:/Program Files (x86)/Unity/Editor/Data\Managed/Mono.Cecil.dll"
 -r:"C:/Program Files (x86)/Unity/Editor/Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll"
 -define:UNITY_5_2_3
@@ -77,43 +91,8 @@
 -define:UNITY_EDITOR
 -define:UNITY_EDITOR_32
 -define:UNITY_EDITOR_WIN
-"Assets/(API)ThopLibrary/Class/ApiThop.cs"
-"Assets/(API)ThopLibrary/Class/CatchTimeM.cs"
-"Assets/(API)ThopLibrary/Class/DJ.cs"
-"Assets/(API)ThopLibrary/Class/StaticCoroutine.cs"
-"Assets/(API)ThopLibrary/Class/TransformM.cs"
-"Assets/(API)ThopLibrary/Class/TransformR.cs"
-"Assets/(API)ThopLibrary/Class/TransformRAR.cs"
-"Assets/(API)ThopLibrary/Class/TransformS.cs"
-"Assets/(API)ThopLibrary/Class/consoleMaster.cs"
-"Assets/(API)ThopLibrary/Class/poolingAudioSource.cs"
-"Assets/(API)ThopLibrary/Script/CarmeraSlideX.cs"
-"Assets/(API)ThopLibrary/Script/CarmeraSlideY.cs"
-"Assets/(API)ThopLibrary/Script/CarmeraTagTarget.cs"
-"Assets/(API)ThopLibrary/Script/ContrainerPooling.cs"
-"Assets/(API)ThopLibrary/Script/LoadLevelAsyncS.cs"
-"Assets/(API)ThopLibrary/Script/MouseClick.cs"
-"Assets/(API)ThopLibrary/Script/MovementControl.cs"
-"Assets/(API)ThopLibrary/buttonClickRiht.cs"
-"Assets/(API)ThopLibrary/colorx4.cs"
-Assets/Pak/OrbitCameraControl.cs
-Assets/Pak/OrbitCameraKeyboard.cs
-Assets/Pak/PuzzleClass.cs
-Assets/Pak/PuzzleController.cs
-Assets/script/Event/Door1.cs
-Assets/script/Event/ankh_E2.cs
-Assets/script/Event/data_Key_tresure.cs
-Assets/script/Event/tresure_E2.cs
-Assets/script/Event/welcomeToMySadStory.cs
-Assets/script/GameManger.cs
-Assets/script/MainMenuControl.cs
-Assets/script/Mecanim.cs
-Assets/script/PlayerEnnt_01.cs
-Assets/script/PlayerEvent.cs
-Assets/script/PopUpBase.cs
-Assets/script/UIControl.cs
-Assets/script/baseEn.cs
-Assets/script/viewborad.cs
-Assets/test.cs
--r:"C:\Program Files (x86)\Unity\Editor\Data\Mono\lib\mono\unity\System.Runtime.Serialization.dll"
--r:"C:\Program Files (x86)\Unity\Editor\Data\Mono\lib\mono\unity\System.Xml.Linq.dll"
+"Assets/(API)ThopLibrary/Editor/EditorButtonClick.cs"
+"Assets/(API)ThopLibrary/Editor/menuwindows/windows.cs"
+Assets/script/Editor/windowToolProject.cs
+-r:"C:\Program Files (x86)\Unity\Editor\Data\Mono\lib\mono\2.0\System.Runtime.Serialization.dll"
+-r:"C:\Program Files (x86)\Unity\Editor\Data\Mono\lib\mono\2.0\System.Xml.Linq.dll"

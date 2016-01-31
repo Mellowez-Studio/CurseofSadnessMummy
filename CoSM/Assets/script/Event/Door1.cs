@@ -12,8 +12,10 @@ public class Door1 : MonoBehaviour {
 	public bool isExitGame = false;
     GameObject backgoundLoad;
     GameObject canvas;
+    private AudioClip effect;
     public void loadAys()
     {
+        effect = Resources.Load("ProjectAssets/sound/AccessDoor") as AudioClip;
           canvas = GameObject.Find("popUpCavas");
           backgoundLoad = canvas.transform.Find("FateLoad_2").gameObject;
 		if (!isExitGame) {
@@ -38,13 +40,16 @@ public class Door1 : MonoBehaviour {
 
     IEnumerator startLoadS()
     {
-        backgoundLoad.SetActive(true);
-       // backgoundLoad.GetComponent<Animator>().Play("FateLoad_2");
+        DJ.PlayAudioEffect(effect);
+        GameManger.isPlayGame = false;
+        yield return new WaitForSeconds(2f);
+        backgoundLoad.SetActive(true);   
+        backgoundLoad.GetComponent<Animator>().Play("FateLoad_2");
         yield return new WaitForSeconds(1f);
-       // backgoundLoad.GetComponent<Animator>().Stop();
+        backgoundLoad.GetComponent<Animator>().Stop();
         GameManger.PreLoad();
         ThopFW.LoadLevelAsync.ToLevel(this.gameObject, ToSence, true);
-        ThopFW.LoadLevelAsync.StartLoadLevelAsync(() => { backgoundLoad.SetActive(false);GameManger.NextDoor(toPosIns); });
+        ThopFW.LoadLevelAsync.StartLoadLevelAsync(() => { backgoundLoad.SetActive(false);GameManger.NextDoor(toPosIns); GameManger.isPlayGame = true; });
     }
     
 }

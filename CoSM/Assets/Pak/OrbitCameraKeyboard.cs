@@ -24,11 +24,14 @@ public class OrbitCameraKeyboard : MonoBehaviour {
         float rotationAmount;
         rotationAmount = rotationSensitivity * Time.deltaTime * 30;
         while (true)
-        {            
-            if (Input.GetKey(KeyCode.Q))
-                orbitCameraScript.RotateHorizontal(-rotationAmount); 
-            if (Input.GetKey(KeyCode.E))
-                orbitCameraScript.RotateHorizontal(rotationAmount);
+        {
+            if (GameManger.isPlayGame)
+            {
+                if (Input.GetKey(KeyCode.Q))
+                    orbitCameraScript.RotateHorizontal(-rotationAmount);
+                if (Input.GetKey(KeyCode.E))
+                    orbitCameraScript.RotateHorizontal(rotationAmount);
+            }
             yield return null;
         }
 

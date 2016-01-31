@@ -5,6 +5,7 @@ using UnityEngine.Events;
 public class buttonClickRiht : MonoBehaviour {
 
 	public UnityEvent actions;
+    public AudioClip sound;
     RaycastHit hit;
 
     void Update()
@@ -16,6 +17,7 @@ public class buttonClickRiht : MonoBehaviour {
             {
                 if (hit.transform.name == this.gameObject.name)
                 {
+                    DJ.PlayAudioEffect(sound);
                     actions.Invoke();
                 }
             }
