@@ -7,8 +7,9 @@ public class GameManger : MonoBehaviour {
     public GameObject canvasPopup;
     public GameObject inGameCanvas;
     public static bool isPlayGame = true;
-
-    public Transform InsPos;
+    public static int nextDoor = 0;
+    public  static GameObject playerIns;
+    static Transform InsPos;
     // Use this for initialization
     void Awake()
     {      
@@ -21,15 +22,21 @@ public class GameManger : MonoBehaviour {
         }
         GameObject b = Instantiate(inGameCanvas);
         b.name = "InGameCanvas";
-        InsPos = GameObject.Find("PosIns_"+ Application.loadedLevel).transform;
+        InsPos = GameObject.Find("PosIns_").transform;
     }
     void Start()
     {
-        Instantiate(Player);//, InsPos.position,Quaternion.identity);
+        playerIns = Instantiate(Player,InsPos.position,Quaternion.identity) as GameObject;
     }
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
+    public static void NextDoor(int index)
+    {
+        InsPos = GameObject.Find("PosIns_"+ index.ToString()).transform;
+        playerIns.transform.position = InsPos.position;
+      
+    }
+    public static void PreLoad()
+    {
+        playerIns.transform.position = new Vector3(100f,100f,100f);
+    }
 }
