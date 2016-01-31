@@ -9,7 +9,6 @@ public class Door1 : MonoBehaviour {
     public string ToSence = "";
     public int toPosIns = 0;
     public string DontEnter = "";
-
     GameObject backgoundLoad;
     GameObject canvas;
     public void loadAys()
@@ -39,9 +38,9 @@ public class Door1 : MonoBehaviour {
     IEnumerator startLoadS()
     {
         backgoundLoad.SetActive(true);
-        backgoundLoad.GetComponent<Animator>().Play("FateLoad_2");
+       // backgoundLoad.GetComponent<Animator>().Play("FateLoad_2");
         yield return new WaitForSeconds(1f);
-        backgoundLoad.GetComponent<Animator>().Stop();
+       // backgoundLoad.GetComponent<Animator>().Stop();
         GameManger.PreLoad();
         ThopFW.LoadLevelAsync.ToLevel(this.gameObject, ToSence, true);
         ThopFW.LoadLevelAsync.StartLoadLevelAsync(() => { backgoundLoad.SetActive(false);GameManger.NextDoor(toPosIns); });
