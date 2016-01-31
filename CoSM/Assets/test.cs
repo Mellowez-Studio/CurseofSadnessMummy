@@ -10,9 +10,11 @@ public class test : MonoBehaviour
     public AnimationCurve curve;
     public AudioClip testtimeBG;
     private int layerMarkFloor;
+	private Animator ani;
     void Start()
     {
         layerMarkFloor = LayerMask.NameToLayer("floor");
+		ani = gameObject.transform.GetChild (0).gameObject.GetComponent<Animator> ();
     }
     
     void Update()
@@ -26,6 +28,7 @@ public class test : MonoBehaviour
                 {
                     if (hit.transform.gameObject.layer == layerMarkFloor)
                     {
+						ani.SetBool("IsWalk",true);
                         isDraw = true;
                         if (isDraws != null)
                             StopCoroutine(isDraws);
@@ -34,7 +37,7 @@ public class test : MonoBehaviour
                         Quaternion rotation = Quaternion.LookRotation(relativePos);
                         gameObject.transform.GetChild(0).transform.rotation = new Quaternion(rotation.x, rotation.y, 0f, rotation.w);
 
-                        ThopFW.TransformAll.TranslateTo(this.gameObject, new Vector3(hit.point.x, transform.position.y, hit.point.z), cuSpeed(hit.point), curve);
+						ThopFW.TransformAll.TranslateTo(this.gameObject, new Vector3(hit.point.x, transform.position.y, hit.point.z), cuSpeed(hit.point), curve,()=>{ani.SetBool("IsWalk",false);});
                     }
                 }
             }

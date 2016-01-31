@@ -41,7 +41,7 @@ public class PlayerEvent : MonoBehaviour {
     {
         while (iswork)
         {
-            if (Input.GetKeyUp(KeyCode.E))
+            if (Input.GetKeyUp(KeyCode.Space))
             {
                 ThopFW.TransformAll.ScaleTo(sprite, Vector3.zero, 0.25f, null, () => { eventA.Invoke(); StopCoroutine(isWork()); });
             }
