@@ -84,7 +84,18 @@ public class PuzzleClass : MonoBehaviour
     {
 
     }
-    
+
+    public void Shuffle(int[] alpha)
+    {
+        for (int i = 0; i < alpha.Length; i++)
+        {
+            int temp = alpha[i];
+            int randomIndex = UnityEngine.Random.Range(i, alpha.Length);
+            alpha[i] = alpha[randomIndex];
+            alpha[randomIndex] = temp;
+            print(alpha[i]);
+        }
+    }
 
 
 
