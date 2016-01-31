@@ -47,14 +47,15 @@ public class PlayerEvent : MonoBehaviour {
         {
             if (Input.GetKeyUp(KeyCode.Space))
             {
-                ThopFW.TransformAll.ScaleTo(sprite, Vector3.zero, 0.25f, null, () => { eventA.Invoke(); StopCoroutine(isWork()); isCilckOk = true; });
+                ThopFW.TransformAll.ScaleTo(sprite, Vector3.zero, 0.25f, null, () => { eventA.Invoke(); StopCoroutine(isWork()); iswork = false;  });
             }
             yield return null ;
         }
     }
     public void testinveoke()
     {
-        ThopFW.TransformAll.ScaleTo(this.gameObject,Vector3.zero,0.25f);
+       // ThopFW.TransformAll.ScaleTo(this.gameObject,Vector3.zero,0.25f);
+        isCilckOk = true; print(isCilckOk);
     }
 
 }
