@@ -27,16 +27,16 @@ public class TransformR : MonoBehaviour
         float spendTime = 0;
          if (onRotatetion)
         {
-            startRotation = transform.eulerAngles;
+            startRotation = transform.localEulerAngles;
             Vector3 dif = rotation - startRotation;
             while (spendTime <= time)
             {
                 spendTime += Time.deltaTime;
                 ratio = spendTime / time;
-                transform.eulerAngles = startRotation + (dif * curve.Evaluate(ratio));
+                transform.localEulerAngles = startRotation + (dif * curve.Evaluate(ratio));
                 yield return new WaitForEndOfFrame();
             }
-            transform.eulerAngles = rotation;
+            transform.localEulerAngles = rotation;
         }
         this.Stop();
     }
