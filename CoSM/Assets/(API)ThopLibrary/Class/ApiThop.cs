@@ -336,7 +336,7 @@ namespace thopframwork
             static string location = "Assets/Resources/xml";
             static string path;
 
-            public static void SaveClassToMXL<T>(string nameFile, T Class, string path = null)
+         /*   public static void SaveClassToMXL<T>(string nameFile, T Class, string path = null)
             {
                 if (path == null)
                     path = OpenLoction();
@@ -363,9 +363,9 @@ namespace thopframwork
                        writer = t.CreateText();
                    }
                    writer.Write(XmlizedString);
-                   writer.Close();*/
+                   writer.Close();
             }
-
+/*
             public static object LoadClassFormXML<T>(string nameFile)
             {
                 StreamReader r = File.OpenText(location + "\\" + nameFile + ".xml");
@@ -395,7 +395,7 @@ namespace thopframwork
                 return byteArray;
             }
 
-            static string OpenLoction()
+          /*  static string OpenLoction()
             {
                 string path = "Assets/Resources/xml";
                 path = UnityEditor.EditorUtility.OpenFolderPanel("Seletion File", path, "");
@@ -411,7 +411,7 @@ namespace thopframwork
                         path += item + "/";
                 }
                 return path;
-            }
+            }*/
         }
 
         [Serializable]
